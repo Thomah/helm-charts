@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "boothby.fullname" . }}
+  labels:
+    {{- include "boothby.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "boothby.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "boothby.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "boothby.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          # command: [ "/bin/bash", "-c", "--" ]
+          # args: [ "while true; do sleep 30; done;" ]
+          # command: [ "/bin/bash", "-c", "--" ]
+          # args: [ "whoami" ]
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "node src/index.js" ]
+          {{- if .Values.postgresql.enabled }}
+          env:
+            - name: PGUSER
+              value: {{ .Values.postgresql.auth.username }}
+            - name: PGPASSWORD
+              value: {{ .Values.postgresql.auth.password }}
+          {{- end }}
+          envFrom:
+          - configMapRef:
+              name: {{ include "boothby.fullname" . }}
+          - secretRef:
+            {{- if .Values.db.existingSecret }}
+              name: {{ .Values.slack.existingSecret.name }}
+            {{- else }}
+              name: "{{ include "boothby.fullname" . }}-slack"
+            {{- end }}
+          {{- if .Values.db.existingSecret }}
+          - secretRef:
+              name: {{ .Values.db.existingSecret.name }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.containerPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

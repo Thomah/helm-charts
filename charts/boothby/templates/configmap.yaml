@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "boothby.fullname" . }}
+  labels:
+    {{- include "boothby.labels" . | nindent 4 }}
+data:
+  PORT: "{{ .Values.service.containerPort }}"
+  PGHOST: "{{ .Values.db.host }}"
+  PGPORT: "{{ .Values.db.port }}"
+  PGDATABASE: "{{ .Values.db.name }}"
+  SLACK_CLIENT_ID: "{{ .Values.slack.clientId }}"
+  APP_URL: "{{ .Values.boothby.appUrl }}"
