@@ -3,7 +3,7 @@ name: Build Charts
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
@@ -54,6 +54,6 @@ jobs:
         
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
