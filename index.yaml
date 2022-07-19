@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  boothby:
+  - apiVersion: v2
+    appVersion: 2.1.0
+    created: "2022-07-19T06:43:22.093347509Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.16
+    description: A Slack Bot to raise awareness on a topic
+    digest: 95b3551ad789ee5673e2eff1cbc04f01d0eb5ea5113b0b75fa608b56775c05e5
+    name: boothby
+    type: application
+    urls:
+    - https://github.com/Thomah/helm-charts/releases/download/boothby-0.1.2/boothby-0.1.2.tgz
+    version: 0.1.2
+generated: "2022-07-19T06:43:22.093360809Z"
