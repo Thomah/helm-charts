@@ -1,6 +1,13 @@
 apiVersion: v2
 name: boothby
 description: A Slack Bot to raise awareness on a topic
+home: https://github.com/thomah/boothby
+sources:
+  - https://github.com/thomah/helm-charts/tree/main/charts/boothby
+  - https://github.com/thomah/boothby
+maintainers:
+  - name: Thomah
+    email: 5090230+Thomah@users.noreply.github.com
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -15,13 +22,13 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.1
+version: 0.2.2
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "2.2.1"
+appVersion: "2.2.0"
 
 dependencies:
 - name: postgresql
