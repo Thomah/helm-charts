@@ -65,8 +65,19 @@ spec:
             httpGet:
               path: /
               port: http
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+            - name : data
+              mountPath : /usr/src/app/files/data
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "boothby.fullname" .) }}
+      {{- end -}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
