@@ -77,7 +77,7 @@ postgresql:
     database: boothby
 
 slack: {}
-  # clientId: 
+  # clientId:
   # existingSecret:
   #   name: slack-boothby
 
