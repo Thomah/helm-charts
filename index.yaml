@@ -104,4 +104,20 @@ entries:
     urls:
     - https://github.com/Thomah/helm-charts/releases/download/boothby-0.1.2/boothby-0.1.2.tgz
     version: 0.1.2
-generated: "2022-08-08T12:57:20.84917906Z"
+  souvenirs:
+  - apiVersion: v2
+    appVersion: 1.2.5
+    created: "2023-07-12T13:25:42.653926158Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.9.1
+    description: Helm chart to deploy Souvenirs in a Kubernetes cluster
+    digest: 486a1e4b4ccabe9f4ce4aefcb294a8cb5361e2ebf95edd18cbf486711e1b4abc
+    name: souvenirs
+    type: application
+    urls:
+    - https://github.com/Thomah/helm-charts/releases/download/souvenirs-0.1.0/souvenirs-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-07-12T13:25:42.653968658Z"
