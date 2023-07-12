@@ -177,16 +177,3 @@ postgresql:
     database: souvenirs
   volumePermissions:
     enabled: true
-
-slack: {}
-  # enabled: true
-  # existingSecret:
-  #   name: souvenirs-slack
-  #   clientIdKey: clientId
-  #   clientSecretKey: clientSecret
-  #   signingSecretKey: signingSecret
-
-microsoft: {}
-  # enabled: true
-  # existingSecret:
-  #   name: souvenirs-microsoft
