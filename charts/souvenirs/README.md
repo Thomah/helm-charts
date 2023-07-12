@@ -15,8 +15,8 @@ This chart bootstraps an instance of 'Souvenirs'.
 To install the chart:
 
 ```bash
-$ helm repo add souvenirs https://souvenirs.github.io/helm-charts
-$ helm install souvenirs/souvenirs
+$ helm repo add souvenirs https://thomah.github.io/helm-charts
+$ helm install thomah/souvenirs
 ```
 
 ## Uninstalling the chart
