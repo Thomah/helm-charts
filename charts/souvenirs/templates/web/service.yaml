@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "souvenirs.fullname" . }}-web
+  labels:
+    {{- include "souvenirs.labels" . | nindent 4 }}
+    component: web
+spec:
+  type: {{ .Values.web.service.type }}
+  ports:
+    - port: {{ .Values.web.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "souvenirs.selectorLabels" . | nindent 4 }}
+    component: web
