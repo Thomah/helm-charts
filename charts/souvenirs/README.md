@@ -1,6 +1,6 @@
 # Souvenirs
 
-[Souvenirs](https://github.com/souvenirs/) is an open sourced solution for collaborative project management.
+**Souvenirs** is an open sourced web app to take pictures and organize them.
 
 ## Introduction
 
