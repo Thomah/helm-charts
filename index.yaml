@@ -2,6 +2,28 @@ apiVersion: v1
 entries:
   boothby:
   - apiVersion: v2
+    appVersion: 2.4.1
+    created: "2023-10-24T15:08:04.572561878Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.1.5
+    description: A Slack Bot to raise awareness on a topic
+    digest: dd11c95b660cb3d9c76dd6df349f6124a3ab5d950c396f66547078698a91b048
+    home: https://github.com/thomah/boothby
+    maintainers:
+    - email: 5090230+Thomah@users.noreply.github.com
+      name: Thomah
+    name: boothby
+    sources:
+    - https://github.com/thomah/helm-charts/tree/main/charts/boothby
+    - https://github.com/thomah/boothby
+    type: application
+    urls:
+    - https://github.com/Thomah/helm-charts/releases/download/boothby-0.3.2/boothby-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     appVersion: 2.4.0
     created: "2023-10-24T14:39:21.835769425Z"
     dependencies:
@@ -157,4 +179,4 @@ entries:
     urls:
     - https://github.com/Thomah/helm-charts/releases/download/souvenirs-0.1.0/souvenirs-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-24T14:39:21.835944225Z"
+generated: "2023-10-24T15:08:04.57260308Z"
