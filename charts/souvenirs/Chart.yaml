@@ -2,10 +2,10 @@ apiVersion: v2
 name: souvenirs
 description: Helm chart to deploy Souvenirs in a Kubernetes cluster
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.2.5"
 dependencies:
 - name: postgresql
-  version: "11.9.1"
+  version: "13.1.5"
   repository: "https://charts.bitnami.com/bitnami"
   condition: postgresql.enabled
