@@ -107,6 +107,21 @@ entries:
   souvenirs:
   - apiVersion: v2
     appVersion: 1.2.5
+    created: "2023-10-24T14:05:43.816598468Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.1.5
+    description: Helm chart to deploy Souvenirs in a Kubernetes cluster
+    digest: a34a124fcd770aa15dfa755dd55fab2c0ee67239f03ec4fc747de7ce11a0154c
+    name: souvenirs
+    type: application
+    urls:
+    - https://github.com/Thomah/helm-charts/releases/download/souvenirs-0.1.1/souvenirs-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.2.5
     created: "2023-07-12T13:25:42.653926158Z"
     dependencies:
     - condition: postgresql.enabled
@@ -120,4 +135,4 @@ entries:
     urls:
     - https://github.com/Thomah/helm-charts/releases/download/souvenirs-0.1.0/souvenirs-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-12T13:25:42.653968658Z"
+generated: "2023-10-24T14:05:43.816625468Z"
